@@ -15,8 +15,13 @@ stats SelectionSort(std::vector<int>&v);
 
 
 
-int partition(std::vector<int>& arr, int low, int high, stats& s);
+size_t partition(std::vector<int>& arr, size_t low, size_t high, stats& s);
 
-void QuickSort(std::vector<int>& arr, int low, int high, stats& s);
+void QuickSort(std::vector<int>& arr, size_t low, size_t high, stats& s);
 
 stats QuickSort(std::vector<int>& arr);
+
+void merge(std::vector<int>& arr, size_t left, size_t middle, size_t right, stats& s);
+void NaturalMergeSort(std::vector<int>& arr, size_t left, size_t right, stats& s);
+
+stats NaturalMergeSort(std::vector<int>& arr);

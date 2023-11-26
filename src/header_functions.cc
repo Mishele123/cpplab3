@@ -1,7 +1,7 @@
 
 #include "header.h"
 
-
+// Сортировка выбором 
 stats SelectionSort(std::vector<int>& v)
 {
 
@@ -37,43 +37,56 @@ stats SelectionSort(std::vector<int>& v)
 }
 
 
-int partition(std::vector<int>& arr, int low, int high, stats& s)
+// Быстрая сортировка
+size_t partition(std::vector<int>& arr, size_t low, size_t high, stats& s) 
 {
-    int pivot = arr[high];
-    int i = low - 1;
-    for (int j = low; j < high; j++)
-    {
-        s.comparison_count++;
-        if (arr[j] < pivot)
-        {
-            i++;
-            std::swap(arr[i], arr[j]);
-            s.copy_count += 2;
-        }
-    }
+	int pivot = arr[high];
+	size_t i = low;
 
+	for (size_t j = low; j < high; j++) 
+	{
+		s.comparison_count++;
+		if (arr[j] < pivot) 
+		{
+			std::swap(arr[i], arr[j]);
+			s.copy_count += 2;
+			i++;
+		}
+	}
 
-    std::swap(arr[i + 1], arr[high]);
-    s.copy_count += 2;
+	std::swap(arr[i], arr[high]);
+	s.copy_count += 2;
 
-    return i + 1;
+	return i;
 }
 
-void QuickSort(std::vector<int>& arr, int low, int high, stats& s)
+void QuickSort(std::vector<int>& arr, size_t low, size_t high, stats& s)
 {
-    if (low < high)
-    {
-        int pivotIndex = partition(arr, low, high, s);
-        QuickSort(arr, low, pivotIndex - 1, s);
-        QuickSort(arr, pivotIndex + 1, high, s);
-    }
+	if (low < high) {
+		size_t pivotIndex = partition(arr, low, high, s);
+
+		if (pivotIndex > 0) 
+		{
+			QuickSort(arr, low, pivotIndex - 1, s);
+		}
+
+		QuickSort(arr, pivotIndex + 1, high, s);
+	}
 }
 
 stats QuickSort(std::vector<int>& arr)
 {
     stats s;
-    int n = arr.size();
+    size_t n = arr.size();
     QuickSort(arr, 0, n - 1, s);
     return s;
 }
 
+// Сортировка двухпутевым слиянием
+
+stats NaturalMergeSort(std::vector<int>& array)
+{
+	stats s;
+
+	return s;
+}
