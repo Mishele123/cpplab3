@@ -11,7 +11,7 @@ int main()
 {
 	std::vector<int> v = { 9, 5, 2, 7, 1, 8, 3 };
 
-	sort(v);
+	SelectionSort(v);
 
 	return 0;
 }

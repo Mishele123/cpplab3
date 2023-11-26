@@ -2,7 +2,7 @@
 #include "header.h"
 
 
-stats sort(std::vector<int>& v)
+stats SelectionSort(std::vector<int>& v)
 {
 
 	stats a;
