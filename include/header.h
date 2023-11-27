@@ -22,6 +22,6 @@ void QuickSort(std::vector<int>& arr, size_t low, size_t high, stats& s);
 stats QuickSort(std::vector<int>& arr);
 
 void merge(std::vector<int>& arr, size_t left, size_t middle, size_t right, stats& s);
-void NaturalMergeSort(std::vector<int>& arr, size_t left, size_t right, stats& s);
+void MergeSort(std::vector<int>& arr, size_t left, size_t right, stats& s);
 
 stats NaturalMergeSort(std::vector<int>& arr);

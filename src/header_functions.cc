@@ -83,10 +83,69 @@ stats QuickSort(std::vector<int>& arr)
 }
 
 // Сортировка двухпутевым слиянием
-
-stats NaturalMergeSort(std::vector<int>& array)
+stats NaturalMergeSort(std::vector<int>& arr)
 {
 	stats s;
-
+	MergeSort(arr, 0, arr.size() - 1, s);
 	return s;
+}
+
+void MergeSort(std::vector<int>& arr, size_t left, size_t right, stats& s)
+{
+	if (left < right)
+	{
+		size_t mid = left + (right - left) / 2;
+		MergeSort(arr, left, mid, s);
+		MergeSort(arr, mid + 1, right, s);
+		merge(arr, left, mid, right, s);
+	}
+}
+
+void merge(std::vector<int>& arr, size_t left, size_t middle, size_t right, stats& s)
+{
+	size_t i = left;
+	size_t j = middle + 1;
+	std::vector<int> temp;
+	while (i <= middle && j <= right)
+	{
+		s.comparison_count++;
+		if (arr[i] < arr[j])
+		{
+			temp.push_back(arr[i++]);
+			s.copy_count++;
+		}
+		else
+		{
+			temp.push_back(arr[j++]);
+			s.copy_count++;
+		}
+	}
+
+	while (i <= middle)
+	{
+		temp.push_back(arr[i++]);
+		s.copy_count++;
+	}
+	while (j <= right)
+	{
+		temp.push_back(arr[j++]);
+		s.copy_count++;
+	}
+	for (auto &i : arr)
+	{
+		std::cout << i << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "temp = ";
+	for (auto& i : temp)
+	{
+		std::cout << i << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "left = " << left << " " << "middle = " << middle << " " << "right = " << right << std::endl;
+	for (size_t i = left; i <= right; i++)
+	{
+		arr[i] = temp[i - left];
+		s.copy_count++;
+	}
 }

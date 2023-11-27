@@ -23,7 +23,7 @@ int main() {
 
     stats s;
 
-    s = QuickSort(arr);
+    s = NaturalMergeSort(arr);
 
     // s = SelectionSort(arr);
 
