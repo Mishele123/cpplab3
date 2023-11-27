@@ -21,6 +21,12 @@ int main() {
         arr.push_back(distr(generator));
     }*/
 
+    for (auto& i : arr)
+    {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
     stats s;
 
     s = NaturalMergeSort(arr);
@@ -29,6 +35,11 @@ int main() {
 
     std::cout << "Sorted array: ";
 
+    for (auto &i : arr)
+    {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 
     std::cout << "Size arr = " << arr.size() << std::endl;
     std::cout << "Number of comparisons: " << s.comparison_count << std::endl;

@@ -64,7 +64,6 @@ void QuickSort(std::vector<int>& arr, size_t low, size_t high, stats& s)
 {
 	if (low < high) {
 		size_t pivotIndex = partition(arr, low, high, s);
-
 		if (pivotIndex > 0) 
 		{
 			QuickSort(arr, low, pivotIndex - 1, s);
@@ -82,7 +81,7 @@ stats QuickSort(std::vector<int>& arr)
     return s;
 }
 
-// Сортировка двухпутевым слиянием
+
 stats NaturalMergeSort(std::vector<int>& arr)
 {
 	stats s;
@@ -131,18 +130,13 @@ void merge(std::vector<int>& arr, size_t left, size_t middle, size_t right, stat
 		temp.push_back(arr[j++]);
 		s.copy_count++;
 	}
-	for (auto &i : arr)
-	{
-		std::cout << i << " ";
-	}
-	std::cout << std::endl;
-	std::cout << "temp = ";
+
 	for (auto& i : temp)
 	{
 		std::cout << i << " ";
 	}
 	std::cout << std::endl;
-	std::cout << "left = " << left << " " << "middle = " << middle << " " << "right = " << right << std::endl;
+
 	for (size_t i = left; i <= right; i++)
 	{
 		arr[i] = temp[i - left];
