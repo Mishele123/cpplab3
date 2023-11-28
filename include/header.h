@@ -28,6 +28,7 @@ public:
 	}
 };
 
+// Сортировка выбором
 template <typename T>
 stats SelectionSort(std::vector<T>& v)
 {
