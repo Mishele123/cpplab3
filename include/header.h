@@ -104,6 +104,7 @@ stats QuickSort(std::vector<T>& arr)
 }
 
 
+// Сортировка слиянием
 template <typename T>
 stats NaturalMergeSort(std::vector<T>& arr)
 {
